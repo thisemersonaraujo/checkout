@@ -1,0 +1,10 @@
+C:\Users\EmersonAraujo\Documents\Projetos\Checkout\Checkout\Checkout.Infra\bin\Debug\Checkout.Infra.dll.config
+C:\Users\EmersonAraujo\Documents\Projetos\Checkout\Checkout\Checkout.Infra\bin\Debug\Checkout.Infra.dll
+C:\Users\EmersonAraujo\Documents\Projetos\Checkout\Checkout\Checkout.Infra\bin\Debug\Checkout.Infra.pdb
+C:\Users\EmersonAraujo\Documents\Projetos\Checkout\Checkout\Checkout.Infra\bin\Debug\EntityFramework.dll
+C:\Users\EmersonAraujo\Documents\Projetos\Checkout\Checkout\Checkout.Infra\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\EmersonAraujo\Documents\Projetos\Checkout\Checkout\Checkout.Infra\bin\Debug\EntityFramework.xml
+C:\Users\EmersonAraujo\Documents\Projetos\Checkout\Checkout\Checkout.Infra\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\EmersonAraujo\Documents\Projetos\Checkout\Checkout\Checkout.Infra\obj\Debug\Checkout.Infra.csprojResolveAssemblyReference.cache
+C:\Users\EmersonAraujo\Documents\Projetos\Checkout\Checkout\Checkout.Infra\obj\Debug\Checkout.Infra.dll
+C:\Users\EmersonAraujo\Documents\Projetos\Checkout\Checkout\Checkout.Infra\obj\Debug\Checkout.Infra.pdb

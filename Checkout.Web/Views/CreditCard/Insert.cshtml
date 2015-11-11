@@ -1,0 +1,79 @@
+﻿@model Checkout.Infra.Models.CreditCard
+
+@{
+    ViewBag.Title = "Cadastrar Cartão de Crédito";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Insert", "CreditCard", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <div class="form-horizontal">
+            <h3><strong>Cadastrar Cartão de Crédito</strong></h3>
+            <hr />
+            <br />
+            <div class="demo-container">
+                <div class="card-wrapper"></div>
+                <br />
+                <br />
+                <div class="form-container active">
+                    <form action="">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-5">
+                                @Html.TextBox("name", null, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Number, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.TextBox("number", null, new { @class = "form-control"})
+                                @Html.ValidationMessageFor(model => model.Number, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Cvc, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-2">
+                                @Html.TextBox("cvc", null, new { @class = "form-control", @name = "cvc", type = "text" })
+                                @Html.ValidationMessageFor(model => model.Cvc, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Expiry, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-3">
+                                @Html.TextBox("expiry", null, new { @class = "form-control", @name = "expiry", type = "text" })
+                                @Html.ValidationMessageFor(model => model.Expiry, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </form>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Gravar" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script src="~/Scripts/jquery.card.js"></script>
+            <script src="~/Scripts/card.js"></script>
+            <script>
+                new Card({
+                    form: document.querySelector('form'),
+                    container: '.card-wrapper'
+                });
+            </script>
+            <div>
+                @Html.ActionLink("Abrir Listagem", "Index")
+            </div>
+        </div>
+    </div>
+}

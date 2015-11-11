@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Checkout</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li @ViewBag.HomeActive>@Html.ActionLink("Início", "Index", "Home")</li>
+                    <li @ViewBag.AccountActive>@Html.ActionLink("Minha Conta", "Index", "Account")</li>
+                    <li @ViewBag.CreditCardActive>@Html.ActionLink("Meus Cartões", "Index", "CreditCard")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Sair", "LogOut", "Access")</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div>
+        @RenderBody()
+    </div>
+    <div style="padding-top: 50px"></div>
+    <footer>
+        <div class="navbar navbar-default navbar-fixed-bottom">
+            <p class="navbar-text pull-left">
+                Developed by Emerson Araujo - 2015 &reg;
+                <a href="http://www.mundipagg.com.br/" target="_blank" class="navbar-btn btn-default">MundiPagg</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+﻿@model Checkout.Infra.Models.Account
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h3><strong>Detalhes da Conta</strong></h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name):
+        </dt>
+
+        <dd>
+            @ViewBag.Account.Name
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email):
+        </dt>
+
+        <dd>
+            @ViewBag.Account.Email
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthday):
+        </dt>
+
+        <dd>
+            @ViewBag.Account.Birthday.ToString("dd/MM/yyyy")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cpf):
+        </dt>
+
+        <dd>
+            @ViewBag.Account.Cpf
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sex):
+        </dt>
+
+        <dd>
+            @if (@ViewBag.Account.Sex == "M")
+            {
+                <p>Masculino</p>
+            }
+            @if (@ViewBag.Account.Sex == "F")
+            {
+                <p>Feminino</p>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address):
+        </dt>
+
+        <dd>
+            @ViewBag.Account.Address
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Number):
+        </dt>
+
+        <dd>
+            @ViewBag.Account.Number
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Complement):
+        </dt>
+
+        <dd>
+            @ViewBag.Account.Complement
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.District):
+        </dt>
+
+        <dd>
+            @ViewBag.Account.District
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State):
+        </dt>
+
+        <dd>
+            @ViewBag.Account.State
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCode):
+        </dt>
+
+        <dd>
+            @ViewBag.Account.ZipCode
+        </dd>
+
+    </dl>
+
+    <p>
+        @Html.ActionLink("Voltar para Minha Conta", "Index")
+    </p>
+</div>
+
