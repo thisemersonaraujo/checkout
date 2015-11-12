@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="checkout-mundipagg" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\EmersonAraujo\\Documents\\Projetos\\Checkout\\Checkout\\Checkout\.Web\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\EmersonAraujo\\Documents\\Projetos\\Checkout\\Checkout\\Checkout\.Web\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="ConnectionContext-Web.config Connection String" description="" value="Data Source=tcp:uzxn5opjev.database.windows.net,1433;Initial Catalog=DBCheckout;Integrated Security=False;User ID=pontoadmin@uzxn5opjev;Password=Arthur12;Connect Timeout=30;Encrypt=True" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\EmersonAraujo\\Documents\\Projetos\\Checkout\\Checkout\\Checkout\.Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ConnectionContext']/@connectionString" />
+  </parameter>
+</parameters>

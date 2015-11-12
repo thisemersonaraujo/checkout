@@ -5,6 +5,5 @@ C:\Users\EmersonAraujo\Documents\Projetos\Checkout\Checkout\Checkout.Infra\bin\D
 C:\Users\EmersonAraujo\Documents\Projetos\Checkout\Checkout\Checkout.Infra\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\EmersonAraujo\Documents\Projetos\Checkout\Checkout\Checkout.Infra\bin\Debug\EntityFramework.xml
 C:\Users\EmersonAraujo\Documents\Projetos\Checkout\Checkout\Checkout.Infra\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\EmersonAraujo\Documents\Projetos\Checkout\Checkout\Checkout.Infra\obj\Debug\Checkout.Infra.csprojResolveAssemblyReference.cache
 C:\Users\EmersonAraujo\Documents\Projetos\Checkout\Checkout\Checkout.Infra\obj\Debug\Checkout.Infra.dll
 C:\Users\EmersonAraujo\Documents\Projetos\Checkout\Checkout\Checkout.Infra\obj\Debug\Checkout.Infra.pdb
