@@ -30,12 +30,6 @@ namespace Checkout.Web.Controllers
             }
         }
 
-        public JsonResult ListAll()
-        {
-            var list = _repository.GetAll();
-            return Json(list, JsonRequestBehavior.AllowGet);
-        }
-
         public Account LoadAccount(int Id)
         {
             try
@@ -65,7 +59,7 @@ namespace Checkout.Web.Controllers
                     if (_listAccounts.Count() > 0)
                     {
                         TempData["AlertLogin"] = "Este endereço de e-mail não pode ser utilizado, pois já existe uma conta vinculada.";
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Index", "Access");
                     }
                     else
                     {
@@ -76,27 +70,35 @@ namespace Checkout.Web.Controllers
                 catch (Exception)
                 {
                     TempData["AlertLogin"] = "Ocorreu um erro ao incluir o registro. Tente novamente mais tarde.";
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Access");
                 }
                 TempData["AlertLogin"] = "Conta cadastrada com sucesso.";
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Access");
             }
             return View(a);
         }
 
         public ActionResult Delete(int id)
         {
-            try
+            var _account = (Account)Session["Account"];
+            if (_account != null)
             {
-                _repository.Delete(_repository.GetById(id));
+                try
+                {
+                    _repository.Delete(_repository.GetById(id));
+                }
+                catch (Exception)
+                {
+                    TempData["AlertMessage"] = "Existem cartões vinculados a sua conta, remova-os antes de deletar sua conta.";
+                    return RedirectToAction("Index", "Account");
+                }
+                TempData["AlertLogin"] = "Registro excluído com sucesso.";
+                return RedirectToAction("Index", "Access");
             }
-            catch (Exception)
+            else
             {
-                TempData["AlertMessage"] = "Ocorreu um erro ao excluir o registro.";
-                return RedirectToAction("Index");
+                return View("Index", "Access");
             }
-            TempData["AlertMessage"] = "Registro excluído com sucesso.";
-            return RedirectToAction("Index");
         }
 
         public ActionResult Edit(int id)
@@ -116,27 +118,33 @@ namespace Checkout.Web.Controllers
         [HttpPost]
         public ActionResult Edit(Account a)
         {
-            if (ModelState.IsValid)
+            var _account = (Account)Session["Account"];
+            if (_account != null)
             {
-                try
+                if (ModelState.IsValid)
                 {
-                    Account _account = new Account();
-                    _account = (Account)Session["Account"];
-                    if (a.Password.ToString() != _account.Password.ToString())
+                    try
                     {
-                        a.Password = Cryptography.Encrypt(a.Password);
+                        if (a.Password.ToString() != _account.Password.ToString())
+                        {
+                            a.Password = Cryptography.Encrypt(a.Password);
+                        }
+                        _repository.Update(a);
                     }
-                    _repository.Update(a);
-                }
-                catch (Exception)
-                {
-                    TempData["AlertMessage"] = "Erro: Ocorreu um erro ao atualizar o registro";
+                    catch (Exception)
+                    {
+                        TempData["AlertMessage"] = "Erro: Ocorreu um erro ao atualizar o registro";
+                        return RedirectToAction("Index");
+                    }
+                    TempData["AlertMessage"] = "Registro atualizado com sucesso.";
                     return RedirectToAction("Index");
                 }
-                TempData["AlertMessage"] = "Registro atualizado com sucesso.";
-                return RedirectToAction("Index");
+                return View(a);
             }
-            return View(a);
+            else
+            {
+                return View("Index", "Access");
+            }
         }
 
         public ActionResult Detail(int id)
@@ -149,21 +157,29 @@ namespace Checkout.Web.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Access");
+                return View("Index", "Access");
             }
         }
 
         public void DetailAccount(int id)
         {
-            try
+            var _account = (Account)Session["Account"];
+            if (_account != null)
             {
-                Account _account = new Account();
-                _account = _repository.GetById(id);
-                ViewBag.Account = _account;
+                try
+                {
+                    Account _a = new Account();
+                    _a = _repository.GetById(id);
+                    ViewBag.Account = _a;
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Error: " + e.Message);
+                }
             }
-            catch (Exception e)
+            else
             {
-                throw new Exception("Error: " + e.Message);
+                RedirectToAction("Index", "Access");
             }
         }
     }
