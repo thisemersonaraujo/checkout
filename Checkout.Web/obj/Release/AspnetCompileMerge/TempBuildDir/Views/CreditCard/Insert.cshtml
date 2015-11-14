@@ -16,6 +16,12 @@
             <h3><strong>Cadastrar Cartão de Crédito</strong></h3>
             <hr />
             <br />
+            @if (@TempData["AlertMessage"] != null)
+            {
+                <div class="alert alert-warning" role="alert">
+                    <p>@TempData["AlertMessage"]</p>
+                </div>
+            }
             <div class="demo-container">
                 <div class="card-wrapper"></div>
                 <br />

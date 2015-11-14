@@ -6,6 +6,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script>
+    function confirmDelete() {
+        var ok = confirm("Deseja realmente excluir esta Conta?");
+        if (ok) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+</script>
+
 <div class="container">
     <h3><strong>Minha Conta</strong></h3>
     <hr />
@@ -49,7 +61,8 @@
             <td>
                 @Html.ActionLink("Adicionar Cartões", "Insert", "CreditCard") |
                 @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
-                @Html.ActionLink("Detalhes", "Detail", new { id = Model.Id })
+                @Html.ActionLink("Detalhes", "Detail", new { id = Model.Id }) |
+                @Html.ActionLink("Deletar", "Delete", new { id = Model.Id }, new { onclick = "return confirmDelete();" })
             </td>
         </tr>
 
